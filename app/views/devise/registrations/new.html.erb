@@ -15,6 +15,20 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+      <%= f.fields_for :profiles do |profiles_from| %>
+      <div class="mt-3">
+        <%= profiles_from.label :first_name, class: "form-label" %>
+        <%= profiles_from.text_field :first_name, class: "form-control" %>
+      </div>
+      <div class="mt-3">
+        <%= profiles_from.label :last_name, class: "form-label" %>
+        <%= profiles_from.text_field :last_name, class: "form-control" %>
+      </div>
+      <div class="mt-3">
+        <%= profiles_from.label :username, class: "form-label" %>
+        <%= profiles_from.text_field :username, class: "form-control" %>
+      </div>
+    <% end %>
   </div>
 
   <div class="form-actions">
